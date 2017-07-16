@@ -4,7 +4,29 @@ Self-Driving Car Engineer Nanodegree Program
 ## Rubric Reflection Questions
 
 ### Describe the effect each of the P, I, and D components had in your implementation
+In this project, I have used the PID Controller primarily to control the steering angle of the vehicle.
 
+The Proportional element of the PID controller, or P, is the term which is proportinal to the Cross Track Error (CTE). Having just a P controller is marginally stable which meant that it although it reaches the set point  it oscillates about the set point. Putting this into perspective, the having this element of the controller abled the vehicle to react quickly to changes in the CTE but having only this component may cause the vehicle to overshoot the set point and oscillates around it. The higher the value of the P controller, the faster the oscillation occurs.
+
+On the other hand, the Differential element of the PID controller, or D, is the term which is proportional to the change in CTE over time which is responsible to dampen and eventually eliminate the oscillations when used together with the P element (PD controller)
+
+The last parameter is the Integral element of the PID controller, or I which computes the sum of the cross track error over time, this is essential in order to bring the vehicle back to its intended trajectory should the vehicle is far from the set point or in other words, reduces the value of the CTE towards zero.
+
+### Describe how the final hyperparameters were chosen
+In this case, I have chosen to tune all the parameters manually. I chose to follow the tuning steps mentioned in http://www.ni.com/white-paper/3782/en/. The steps taken were:
+1. Set the I and D parameters to zero first.
+2. Increase the proportional gain.
+    - At this stage, steering values started to oscillate like crazy! And the vehicle eventually ended up in the lake or sometimes on the top of the hill!
+3. Increase the integral term to reduce the oscillations but noticed some overshoot in the  
+   steering values.
+4. Increase the Derivative term until vehicle quickly resides back to its set point.
+5. Then manually play around with the values until eventually the vehicle starts to drive as intended!
+
+The final values chosen are:
+Kp = 0.225, Ki = 0.001, Kd = 15.
+
+I have uploaded a video of the making a drive around the set and the link is here:
+https://youtu.be/cCSFEZMXjkA
 
 ## Dependencies
 
