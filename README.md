@@ -1,7 +1,10 @@
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
 
----
+## Rubric Reflection Questions
+
+### Describe the effect each of the P, I, and D components had in your implementation
+
 
 ## Dependencies
 
